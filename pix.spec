@@ -8,6 +8,7 @@ Group:		X11/Applications/Graphics
 #Source0Download: https://github.com/linuxmint/pix/tags
 Source0:	https://github.com/linuxmint/pix/archive/%{version}/%{name}-%{version}.tar.gz
 # Source0-md5:	92dbc1958e19cec44966bd39f3f48f8e
+Patch0:		%{name}-types.patch
 URL:		https://github.com/linuxmint/pix
 BuildRequires:	automake
 BuildRequires:	bison
@@ -101,6 +102,7 @@ rozszerzeń aplikaji Pix.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 # webkit 4.1 uses libsoup-3 while pix links with libsoup-2.4
 %{__sed} -i -e 's,webkit2gtk-4\.1,webkit-disabled,' meson.build

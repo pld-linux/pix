@@ -1,0 +1,13 @@
+--- pix-3.4.5/pix/main-migrate-catalogs.c.orig	2025-01-06 15:12:48.000000000 +0100
++++ pix-3.4.5/pix/main-migrate-catalogs.c	2025-03-15 19:34:16.044699372 +0100
+@@ -312,8 +312,9 @@ migration_for_each_file (GFile     *file
+ 					GthDateTime *dt;
+ 					char        *exif_date;
+ 					char        *op;
++					time_t      datets = date;
+ 
+-					tm = localtime (&date);
++					tm = localtime (&datets);
+ 					dt = gth_datetime_new ();
+ 					gth_datetime_from_struct_tm (dt, tm);
+ 					exif_date = gth_datetime_to_exif_date (dt);
