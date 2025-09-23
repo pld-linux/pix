@@ -2,7 +2,7 @@ Summary:	An image viewer and browser utility
 Summary(pl.UTF-8):	Przeglądarka obrazków
 Name:		pix
 Version:	3.4.5
-Release:	2
+Release:	3
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 #Source0Download: https://github.com/linuxmint/pix/tags
