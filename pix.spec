@@ -1,13 +1,13 @@
 Summary:	An image viewer and browser utility
 Summary(pl.UTF-8):	Przeglądarka obrazków
 Name:		pix
-Version:	3.4.5
-Release:	4
+Version:	3.4.10
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Graphics
 #Source0Download: https://github.com/linuxmint/pix/tags
 Source0:	https://github.com/linuxmint/pix/archive/%{version}/%{name}-%{version}.tar.gz
-# Source0-md5:	92dbc1958e19cec44966bd39f3f48f8e
+# Source0-md5:	574a2f372c409c4b316f595e978d2c62
 Patch0:		%{name}-types.patch
 URL:		https://github.com/linuxmint/pix
 BuildRequires:	automake
@@ -109,6 +109,7 @@ rozszerzeń aplikaji Pix.
 
 %build
 %meson \
+	-Dclutter=true \
 	-Dlibchamplain=true
 
 %meson_build
@@ -138,11 +139,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS MAINTAINERS README.md
+%doc AUTHORS MAINTAINERS README.md debian/changelog
 %attr(755,root,root) %{_bindir}/pix
 %dir %{_libdir}/pix
 %dir %{_libdir}/pix/extensions
-%attr(755,root,root) %{_libdir}/pix/extensions/*.so
+%{_libdir}/pix/extensions/*.so
 %{_libdir}/pix/extensions/*.extension
 %{_datadir}/glib-2.0/schemas/org.x.pix.enums.xml
 %{_datadir}/glib-2.0/schemas/org.x.pix.gschema.xml
